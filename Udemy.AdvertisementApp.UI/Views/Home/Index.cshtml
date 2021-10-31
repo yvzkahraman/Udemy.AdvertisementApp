@@ -1,0 +1,38 @@
+﻿@model List<ProvidedServiceListDto>
+@{
+    Layout = "_Layout";
+}
+@*  i tek çift? *@
+
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+        <div class="container px-5">
+            <h1 class="masthead-heading mb-0">Udemy Bilişim</h1>
+            <h2 class="masthead-subheading mb-0">Masaüstü, Web ve Mobil Uygulamalar</h2>
+            <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Daha fazla</a>
+        </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+</header>
+
+@for (int i = 0; i < Model?.Count; i++)
+{
+    <section id="scroll">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 @(i%2==0?"order-lg-2":"") ">
+                    <div class="p-5"><img class="img-fluid rounded-circle" src="@Model[i].ImagePath" /></div>
+                </div>
+                <div class="col-lg-6 @(i%2==0?"order-lg-1":"")">
+                    <div class="p-5">
+                        <h2 class="display-4">@Model[i].Title</h2>
+                        <p>@Model[i].Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

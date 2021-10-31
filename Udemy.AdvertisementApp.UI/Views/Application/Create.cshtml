@@ -1,0 +1,59 @@
+﻿@model AdvertisementCreateDto
+@{
+    Layout = "_Layout";
+}
+
+<div class="container-fluid">
+
+    <form asp-action="Create" asp-controller="Application" method="post">
+        <div class="mb-3">
+            <label>İlanın Başlığı</label>
+            <input type="text" asp-for="@Model.Title" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label>Aktif :</label>
+            <input type="checkbox" asp-for="@Model.Status" class="form-check" />
+        </div>
+        <div class="mb-3">
+            <label>İçerik :</label>
+            <textarea asp-for="@Model.Description" class="form-control"></textarea>
+        </div>
+
+        <div class="">
+
+        </div>
+
+    </form>
+
+</div>
+
+@section css{
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/ui/trumbowyg.min.css" rel="stylesheet" />
+
+}
+
+@*//test*@
+
+@section script{
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/langs/tr.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/cleanpaste/trumbowyg.cleanpaste.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/pasteimage/trumbowyg.pasteimage.min.js"></script>
+
+
+    <script>
+        // Doing this in a loaded JS file is better, I put this here for simplicity
+        $('#Description').trumbowyg({
+            lang: 'tr'
+        });
+    </script>
+
+}

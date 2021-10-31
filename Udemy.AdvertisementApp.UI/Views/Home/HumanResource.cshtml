@@ -1,0 +1,42 @@
+﻿@model List<AdvertisementListDto>
+@{
+    Layout = "_Layout";
+}
+<div class="dummy mt-5">
+
+</div>
+<div class="container my-3">
+    <div class="accordion" id="accordionExample">
+        @for (int i = 0; i < Model?.Count; i++)
+        {
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-@Model[i].Id">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@Model[i].Id" aria-expanded="@(i==0)" aria-controls="collapse-@Model[i].Id">
+                        @Model[i].Title
+                    </button>
+                </h2>
+                <div id="collapse-@Model[i].Id" class="accordion-collapse collapse @(i==0?"show":"")" aria-labelledby="heading-@Model[i].Id" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        @Model[i].Description
+
+                        <div>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a asp-controller="Advertisement" asp-action="Send" asp-route-advertisementId="@Model[i].Id">Başvur</a>
+                            }
+                            else
+                            {
+                                <div class="alert alert-light text-center">
+                                    Başvuru yapabilmeniz için giriş yapmanız gerekmektedir. <a asp-action="SignIn" asp-controller="Account">Giriş Yap</a>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
