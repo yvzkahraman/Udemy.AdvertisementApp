@@ -1,10 +1,11 @@
-﻿@model AdvertisementCreateDto
+﻿@model AdvertisementUpdateDto
 @{
     Layout = "_Layout";
 }
 
 <div class="container-fluid">
-    <form asp-action="Create" asp-controller="Application" method="post">
+    <form asp-action="Update" asp-controller="Application" method="post">
+        <input type="hidden" asp-for="@Model.Id" />
         <div class="mb-3">
             <label>İlanın Başlığı :</label>
             <input type="text" class="form-control" asp-for="@Model.Title" />
@@ -38,9 +39,9 @@
         })
     </script>
 
-} 
+}
 
-@section css{ 
+@section css{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/ui/trumbowyg.min.css" integrity="sha512-nwpMzLYxfwDnu68Rt9PqLqgVtHkIJxEPrlu3PfTfLQKVgBAlTKDmim1JvCGNyNRtyvCx1nNIVBfYm8UZotWd4Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 }
